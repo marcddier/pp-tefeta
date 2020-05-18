@@ -37,42 +37,42 @@ function resolve(startLine: number, nextLine: number): any {
   let continueRight = true;
   let continueLeft = true;
 
-  let arrayStartLine = line.split('');
-  let arrayNextLine = next.split('');
+  const arrayStartLine = line.split('');
+  const arrayNextLine = next.split('');
   let startingPointIndex: number | undefined;
-  
+
   if (startLine == start) {
-    startingPointIndex = arrayStartLine.findIndex(e => e == "1");
+    startingPointIndex = arrayStartLine.findIndex(e => e == '1');
   } else {
-    startingPointIndex = arrayStartLine.findIndex(e => e == "0");
+    startingPointIndex = arrayStartLine.findIndex(e => e == '0');
   }
 
-  for (let i = startingPointIndex; i < arrayStartLine.length; i ++) {
-    if (arrayStartLine[i] == "*" || arrayStartLine[i] == "\n") {
-      continueRight = false
-    } else if (arrayStartLine[i] == "2") {
-      return true
+  for (let i = startingPointIndex; i < arrayStartLine.length; i++) {
+    if (arrayStartLine[i] == '*' || arrayStartLine[i] == '\n') {
+      continueRight = false;
+    } else if (arrayStartLine[i] == '2') {
+      return true;
     } else {
       if (continueRight != false) {
-        if (arrayNextLine[i] == " ") {
-          arrayNextLine[i] = "0";
+        if (arrayNextLine[i] == ' ') {
+          arrayNextLine[i] = '0';
           return resolve(startLine + 1, nextLine + 1);
         }
       }
     }
   }
 
-  for (let i = startingPointIndex; i < 9; i ) {
-    console.log("ok")
-    if (arrayStartLine[i] == "*" || arrayStartLine[i] == "\n") {
-      continueLeft = false
-    } else if (arrayStartLine[i] == "2") {
-      console.log("ok")
-      return true
+  for (let i = startingPointIndex; i < 9; i) {
+    console.log('ok');
+    if (arrayStartLine[i] == '*' || arrayStartLine[i] == '\n') {
+      continueLeft = false;
+    } else if (arrayStartLine[i] == '2') {
+      console.log('ok');
+      return true;
     } else {
       if (continueLeft != false) {
-        if (arrayNextLine[i] == " ") {
-          arrayNextLine[i] = "0";
+        if (arrayNextLine[i] == ' ') {
+          arrayNextLine[i] = '0';
           return resolve(startLine + 1, nextLine + 1);
         }
       }
